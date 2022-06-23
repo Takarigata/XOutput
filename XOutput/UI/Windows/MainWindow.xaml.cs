@@ -45,6 +45,10 @@ namespace XOutput.UI.Windows
             InitializeComponent();
             viewModel.Initialize(Log);
             Dispatcher.Invoke(Initialize);
+            if (argumentParser.ResetArg)
+            {
+                viewModel.GetController();
+            }
         }
 
         private async Task Initialize()

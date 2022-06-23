@@ -280,6 +280,8 @@ namespace XOutput.UI.Windows
             {
                 RemoveController(Model.Controllers[i]);
             }
+            
+            LoadSettings(SettingsFilePath);
         }
         
         public void RemoveController(ControllerView controllerView)

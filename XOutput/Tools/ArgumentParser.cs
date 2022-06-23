@@ -13,10 +13,14 @@ namespace XOutput.Tools
         private static readonly ILogger logger = LoggerFactory.GetLogger(typeof(ArgumentParser));
 
         private readonly bool minimized;
+        
+        private readonly bool reset;
         /// <summary>
         /// Gets if the application should start in silent mode.
         /// </summary>
         public bool Minimized => minimized;
+        
+        public bool ResetArg => reset;
 
         public ArgumentParser() : this(Environment.GetCommandLineArgs().Skip(1).ToArray())
         {
@@ -27,10 +31,16 @@ namespace XOutput.Tools
         {
             var args = arguments.ToList();
             minimized = args.Any(arg => arg == "--minimized");
+            reset = args.Any(arg => arg == "--reset");
             if (minimized)
             {
                 args.Remove("--minimized");
             }
+            if (reset)
+            {
+                args.Remove("--minimized");
+            }
+            
             foreach (var arg in args)
             {
                 logger.Warning($"Unused command line argument: {arg}");
