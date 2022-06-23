@@ -5,6 +5,13 @@ using System.Windows.Interop;
 using System.Windows.Threading;
 using XOutput.Logging;
 using XOutput.Tools;
+using XOutput.Devices.XInput.Vigem;
+
+//USING TEST
+using Nefarius.ViGEm.Client;
+using Nefarius.ViGEm.Client.Exceptions;
+using Nefarius.ViGEm.Client.Targets;
+using Nefarius.ViGEm.Client.Targets.Xbox360;
 
 namespace XOutput.UI.Windows
 {
@@ -79,6 +86,8 @@ namespace XOutput.UI.Windows
         {
             viewModel.AddController(null);
         }
+        
+        
 
         private void RefreshClick(object sender, RoutedEventArgs e)
         {
@@ -106,6 +115,20 @@ namespace XOutput.UI.Windows
         private void SaveClick(object sender, RoutedEventArgs e)
         {
             viewModel.SaveSettings();
+        }
+
+        private void ResetAllID(object sender, RoutedEventArgs e)
+        {
+            viewModel.GetController();
+        }
+
+        private void DebugUnplugAll()
+        {
+            for(int i = 0; i < 4; i++)
+            {
+                VigemDevice Test = new VigemDevice();
+                Test.Unplug(i);
+            }
         }
 
         private void SettingsClick(object sender, RoutedEventArgs e)
@@ -173,5 +196,6 @@ namespace XOutput.UI.Windows
                 TaskbarIconTrayMouseDoubleClick(this, null);
             });
         }
+
     }
 }

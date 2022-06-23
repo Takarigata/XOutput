@@ -100,5 +100,6 @@
   "XInputTypes.R2": "RT",
   "XInputTypes.R3": "RTB",
   "XInputTypes.RIGHT": "Droite",
-  "XInputTypes.UP": "Haut"
+  "XInputTypes.UP": "Haut",
+  "ResetAllID":  "Reset ControllerID"
 }

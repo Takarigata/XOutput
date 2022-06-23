@@ -74,6 +74,7 @@
         </GroupBox>
         <DockPanel Grid.Row="6">
             <Button Click="SaveClick" Width="150" Margin="10" Content="{Binding LanguageModel.Data, Converter={StaticResource LanguageConverter}, ConverterParameter='SaveConfiguration'}" DockPanel.Dock="Right"/>
+            <Button Click="ResetAllID" Width="150" Margin="10" Content="{Binding LanguageModel.Data, Converter={StaticResource LanguageConverter}, ConverterParameter='ResetAllID'}" DockPanel.Dock="Right"/>
             <Grid/>
         </DockPanel>
     </Grid>

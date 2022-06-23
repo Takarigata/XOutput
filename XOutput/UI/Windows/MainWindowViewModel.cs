@@ -274,6 +274,14 @@ namespace XOutput.UI.Windows
             }
         }
 
+        public void GetController()
+        {
+            for (int i = Model.Controllers.Count - 1; i >= 0; i--)
+            {
+                RemoveController(Model.Controllers[i]);
+            }
+        }
+        
         public void RemoveController(ControllerView controllerView)
         {
             var controller = controllerView.ViewModel.Model.Controller;
